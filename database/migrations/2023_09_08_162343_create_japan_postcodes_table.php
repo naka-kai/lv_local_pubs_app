@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('japan_postcodes', function (Blueprint $table) {
             $table->string('postcode');
             $table->string('prefecture');
             $table->string('city');
             $table->string('street');
-            $table->string('tel');
-            $table->string('sns')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shops');
+        Schema::dropIfExists('japan_postcodes');
     }
 };

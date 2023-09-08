@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Shop;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,16 @@ class ShopFactory extends Factory
      */
     public function definition()
     {
+        $address = $this->faker->jpAddressArray();
+
         return [
-            //
+            'name' => $this->faker->name(),
+            'postcode' => $address['postcode'],
+            'prefecture' => $address['prefecture'],
+            'city' => $address['city'],
+            'street' => $address['streetAddress'],
+            'tel' => $this->faker->phoneNumber(),
+            'sns' => $this->faker->url(),
         ];
     }
 }
